@@ -1,0 +1,69 @@
+<html>
+<head>
+	<script type="text/javascript" src="js/angular-1.5.5.js"></script>
+	<script type="text/javascript" src="js/angular-animate.min-1.5.5.js"></script>
+	<script type="text/javascript" src="js/angular-route.min-1.5.5.js"></script>
+	<script type="text/javascript" src="js/angular-aria.min-1.5.5.js"></script>
+	<script type="text/javascript" src="js/angular-messages.min-1.5.5.js"></script>
+	<script type="text/javascript" src="js/svg-assets-cache-114.js"></script>
+	<script type="text/javascript" src="js/angular-material-v1.1.0-rc.5.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/auditlogctrl.js"></script>
+	<link href="css/angular-material-v1.1.0-rc.5.css" rel="stylesheet"></link>
+	<link href="css/docs-1.1.0-rc.5.css" rel="stylesheet"></link>
+	<link href="css/app.css" rel="stylesheet"></link>
+</head>
+<body>
+	<div ng-controller="AppCtrl" ng-cloak="" class="toolbardemoBasicUsage" ng-app="MyApp">
+
+		<md-content> <md-toolbar class="md-hue-2">
+		<div class="md-toolbar-tools">
+			<md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()" ng-hide="isOpenLeft()"> <md-icon
+				md-svg-icon="img/icons/menu.svg"></md-icon> </md-button>
+			<h2>
+				<span>AuditLog Query</span>
+			</h2>
+			<span flex=""></span>
+			<md-button class="md-icon-button" aria-label="More"> <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+			</md-button>
+
+		</div>
+		</md-toolbar>
+		<div ng-view>hello</div>
+		</md-content>
+
+		<md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
+			<md-toolbar class="md-theme-light">
+				<h1 class="md-toolbar-tools">Menu</h1>
+			</md-toolbar>
+			<md-content ng-controller="LeftCtrl" layout-padding>
+				<md-list flex="">
+					<md-list-item class="md-3-line" ng-click="go('auditlog')">
+						<img ng-src="https://cdn2.iconfinder.com/data/icons/work-flow/512/File_Search-32.png" class="md-avatar" />
+						<div class="md-list-item-text" layout="column">
+							<h3>AuditLog Query</h3>
+							<h4></h4>
+						</div>
+					</md-list-item>
+					
+					<md-list-item class="md-3-line" ng-click="go('configuration')">
+						<img ng-src="https://cdn2.iconfinder.com/data/icons/seo-multicolor-optimisation/512/search_optimisation_setting_configure-32.png" class="md-avatar" />
+						<div class="md-list-item-text" layout="column">
+							<h3>Configuration Query</h3>
+							<h4></h4>
+						</div>
+					</md-list-item>
+					<md-list-item class="md-3-line" ng-click="go('referencedata')">
+						<img ng-src="https://cdn3.iconfinder.com/data/icons/website-universal-modern-line-with-shade/64/book-ebook-resource-reference-32.png" class="md-avatar">
+						<div class="md-list-item-text" layout="column">
+							<h3>ReferenceData Query</h3>
+							<h4></h4>
+						</div>
+					</md-list-item>
+				</md-list>
+				<md-button ng-click="close()" class="md-primary">Close Menu</md-button>
+			</md-content>
+		</md-sidenav>
+	</div>
+</body>
+</html>
