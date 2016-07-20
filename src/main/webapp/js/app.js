@@ -1,4 +1,4 @@
-app = angular.module('MyApp', ['ngMaterial', 'ngMessages', 'ngRoute', 'material.svgAssetsCache']);
+app = angular.module('MyApp', ['ngMaterial', 'ngMessages', 'ngRoute', 'material.svgAssetsCache', 'sticky']);
 
 app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
   var imagePath = 'img/list/60.jpeg';
