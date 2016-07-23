@@ -10,7 +10,15 @@
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/sticky.min.js"></script>
 	<script type="text/javascript" src="js/auditlogctrl.js"></script>
+	<script type="text/javascript" src="js/configurationctrl.js"></script>
+	<script type="text/javascript" src="js/referencedatactrl.js"></script>
+	<script type="text/javascript" src="js/dependencyctrl.js"></script>
+	<script type="text/javascript" src="js/ng-table.min.js"></script>
+	<script type="text/javascript" src="js/angular_ngreource.js"></script>
+	
 	<link href="css/angular-material-v1.1.0-rc.5.css" rel="stylesheet"></link>
+	<link href="css/ng-table.min.css" rel="stylesheet"></link>
+	<link href="css/bootstrap.min.css" rel="stylesheet"></link>
 	<link href="css/docs-1.1.0-rc.5.css" rel="stylesheet"></link>
 	<link href="css/app.css" rel="stylesheet"></link>
 </head>
@@ -47,7 +55,7 @@
 					<md-list-item class="md-3-line" ng-click="go('auditlog')">
 						<img ng-src="img/auditlog-icon.png" class="md-avatar" />
 						<div class="md-list-item-text" layout="column">
-							<h3>AuditLog Query</h3>
+							<h3>Query AuditLog</h3>
 							<h4></h4>
 						</div>
 					</md-list-item>
@@ -55,14 +63,21 @@
 					<md-list-item class="md-3-line" ng-click="go('configuration')">
 						<img ng-src="img/configuration-icon.png" class="md-avatar" />
 						<div class="md-list-item-text" layout="column">
-							<h3>Configuration Query</h3>
+							<h3>View Configuration</h3>
 							<h4></h4>
 						</div>
 					</md-list-item>
 					<md-list-item class="md-3-line" ng-click="go('referencedata')">
 						<img ng-src="img/referencedata-icon.png" class="md-avatar">
 						<div class="md-list-item-text" layout="column">
-							<h3>ReferenceData Query</h3>
+							<h3>View ReferenceData</h3>
+							<h4></h4>
+						</div>
+					</md-list-item>
+					<md-list-item class="md-3-line" ng-click="go('dependency')">
+						<img ng-src="img/dependency-icon.png" class="md-avatar">
+						<div class="md-list-item-text" layout="column">
+							<h3>Find Service Dependency</h3>
 							<h4></h4>
 						</div>
 					</md-list-item>

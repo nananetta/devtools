@@ -1,4 +1,4 @@
-app = angular.module('MyApp', ['ngMaterial', 'ngMessages', 'ngRoute', 'material.svgAssetsCache', 'sticky']);
+app = angular.module('MyApp', ['ngMaterial', 'ngMessages', 'ngRoute', 'material.svgAssetsCache', 'sticky', 'ngTable', 'ngResource']);
 
 app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
   var imagePath = 'img/list/60.jpeg';
@@ -34,19 +34,6 @@ app.controller('LeftCtrl', function($scope, $timeout, $mdSidenav, $log) {
   };
 });
 
-//app.controller('AuditLogCtrl', function ($scope) { 
-//	$scope.user = {
-//		      title: 'Developer',
-//		      email: 'ipsum@lorem.com',
-//		      firstName: '',
-//		      lastName: '',
-//		      company: 'Google',
-//		      address: '1600 Amphitheatre Pkwy'
-//	}
-//	
-//});
-app.controller('ConfigurationCtrl', function ($scope) {});
-app.controller('ReferenceDataCtrl', function ($scope) {});
 app.controller('HomeCtrl', function ($scope) {});
 
 app.config(function($routeProvider) {
@@ -64,14 +51,14 @@ app.config(function($routeProvider) {
       templateUrl: 'referencedata.html',
       controller: 'ReferenceDataCtrl'
     })
+    .when('/dependency', {
+      templateUrl: 'dependency.html',
+      controller: 'DependencyCtrl'
+    })
     .otherwise({
       templateUrl: 'home.html',
       controller: 'HomeCtrl'
     });
-
-  // $routeProvider.otherwise({
-  //   redirectTo: '/'
-  // });
   // configure html5 to get links working on jsfiddle  
 //  $locationProvider.html5Mode({
 //    enabled: true,
