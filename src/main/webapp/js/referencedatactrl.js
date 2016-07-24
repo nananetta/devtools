@@ -22,11 +22,11 @@ app.run(configureDefaults);
   
 app.controller('ReferenceDataCtrl', function ($scope, refdata, NgTableParams) {
 	var self = this;
-	
 	self.result = [];
     self.tableParams = new NgTableParams({}, {
-    	dataset:this.result
+    	dataset: this.result
     });
+
     
     self.statusValues = [{id:"sync", title:"Sync"},{id:"out of sync", title:"Out of Sync"}];
 

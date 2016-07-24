@@ -1,4 +1,6 @@
-app = angular.module('MyApp', ['ngMaterial', 'ngMessages', 'ngRoute', 'material.svgAssetsCache', 'sticky', 'ngTable', 'ngResource']);
+app = angular.module('MyApp', [ 'ngMaterial', 'ngMessages', 'ngRoute',
+		'material.svgAssetsCache', 'sticky', 'ngTable', 'ngResource',
+		'ngAnimate', 'angular-loading-bar', 'angularTreeview' ]);
 
 app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
   var imagePath = 'img/list/60.jpeg';
@@ -9,6 +11,7 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $location
 
   $scope.go = function(path) {
     $location.path(path);
+    $scope.title = path;
     $mdSidenav('left').close()
   };
 
@@ -34,24 +37,30 @@ app.controller('LeftCtrl', function($scope, $timeout, $mdSidenav, $log) {
   };
 });
 
+app.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = true;
+    cfpLoadingBarProvider.includeBar = true;
+  }])
+
+
 app.controller('HomeCtrl', function ($scope) {});
 
 app.config(function($routeProvider) {
 
   $routeProvider
-    .when('/auditlog', {
+    .when('/Audit Log', {
       templateUrl: 'auditlog.html',
       controller: 'AuditLogCtrl'
     })
-    .when('/configuration', {
+    .when('/Configuration', {
       templateUrl: 'configuration.html',
       controller: 'ConfigurationCtrl'
     })
-    .when('/referencedata', {
+    .when('/Reference Data', {
       templateUrl: 'referencedata.html',
       controller: 'ReferenceDataCtrl'
     })
-    .when('/dependency', {
+    .when('/Service Dependency', {
       templateUrl: 'dependency.html',
       controller: 'DependencyCtrl'
     })
@@ -73,3 +82,18 @@ app.config(function($mdThemingProvider) {
 	.dark();
 
 });
+
+app.directive('emptyToNull', function() {
+    return {
+    	restrict : 'A',
+    	require : 'ngModel',
+    	link : function(scope, elem, attrs, ctrl) {
+    	    ctrl.$parsers.push(function(viewValue) {
+    		if (viewValue === "") {
+    		    return null;
+    		}
+    		return viewValue;
+    	    });
+    	}
+        };
+    })

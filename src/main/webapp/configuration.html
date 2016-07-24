@@ -1,22 +1,27 @@
 <div layout="column" ng-cloak="" class="md-inline-form inputdemoBasicUsage" ng-controller="ConfigurationCtrl as config">
 
-  <!-- <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding="" sticky> 
-	  <div class="container-fluid" >
+  <md-content id="refdata-control" md-theme="docs-dark" layout-gt-sm="row" sticky>
+		<form class="form-inline">
 			<div class="form-group">
-			<form class="navbar-form navbar-left" role="filter">
-			<label>Filter  :  </label>
-			  <div class="form-group">
-				<input type="text" class="form-control" ng-model="filter.configName" placeholder="configName" />
-				<input type="text" class="form-control" ng-model="filter.configKey" placeholder="configKey" />
-				<input type="text" class="form-control" ng-model="filter.configValue" placeholder="configValue" />			
+				<md-input-container>
+					<label>Config Name</label>
+					<input ng-model="filter.configName"> 
+				</md-input-container>
 			</div>
-			</form>
+			<div class="form-group">
+				<md-input-container>
+					<label>Config Key</label>
+					<input ng-model="filter.configKey">
+				</md-input-container>
 			</div>
-	  </div>/.container-fluid
-  </md-content> -->
+			<div class="form-group">
+				<md-button id="search-button" class="md-raised md-primary">Search</md-button>
+			</div>
+		</form>
+	</md-content>
   
   <div>
- 		<table ng-table="config.tableParams" class="table table-condensed table-bordered table-striped" show-filter="true"> 
+ 		<table ng-table="config.tableParams" class="table table-condensed table-bordered table-striped table-hover" show-filter="true"> 
  		    <tr  style="font-size: 80%"" ng-repeat="row in $data"> 
 				<td data-title="'status'" filter="{ status: 'select'}" sortable="'status'" filter-data="config.statusValues"><span ng-class="{'label label-warning': row.status == 'out of sync','label label-success': row.status == 'sync'}">{{row.status}}</span></td>
  		        <td data-title="'configName'" filter="{ configName: 'text'}" sortable="'configName'"> 

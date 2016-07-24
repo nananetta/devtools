@@ -7,20 +7,25 @@
 	<script type="text/javascript" src="js/angular-messages.min-1.5.5.js"></script>
 	<script type="text/javascript" src="js/svg-assets-cache-114.js"></script>
 	<script type="text/javascript" src="js/angular-material-v1.1.0-rc.5.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/sticky.min.js"></script>
+	<script type="text/javascript" src="js/ng-table.min.js"></script>
+	<script type="text/javascript" src="js/angular_ngreource.js"></script>
+	<script type="text/javascript" src="js/loading-bar.min.js"></script>
+	<script type="text/javascript" src="js/angular.treeview.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/auditlogctrl.js"></script>
 	<script type="text/javascript" src="js/configurationctrl.js"></script>
 	<script type="text/javascript" src="js/referencedatactrl.js"></script>
 	<script type="text/javascript" src="js/dependencyctrl.js"></script>
-	<script type="text/javascript" src="js/ng-table.min.js"></script>
-	<script type="text/javascript" src="js/angular_ngreource.js"></script>
 	
 	<link href="css/angular-material-v1.1.0-rc.5.css" rel="stylesheet"></link>
 	<link href="css/ng-table.min.css" rel="stylesheet"></link>
 	<link href="css/bootstrap.min.css" rel="stylesheet"></link>
 	<link href="css/docs-1.1.0-rc.5.css" rel="stylesheet"></link>
 	<link href="css/app.css" rel="stylesheet"></link>
+	<link href="css/loading-bar.min.css" rel="stylesheet"></link>
+	<link href="css/angular.treeview.css" rel="stylesheet"></link>
 </head>
 <body>
 	<div ng-controller="AppCtrl" ng-cloak="" class="toolbardemoBasicUsage" ng-app="MyApp">
@@ -30,7 +35,7 @@
 			<md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()" ng-hide="isOpenLeft()"> <md-icon
 				md-svg-icon="img/icons/menu.svg"></md-icon> </md-button>
 			<h2>
-				<span>Admin DevTools</span>
+				<span>{{title}}</span>
 			</h2>
 			<span flex=""></span>
 			<md-button class="md-icon-button" aria-label="More"> <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
@@ -52,7 +57,7 @@
 							<h4></h4>
 						</div>
 					</md-list-item>
-					<md-list-item class="md-3-line" ng-click="go('auditlog')">
+					<md-list-item class="md-3-line" ng-click="go('Audit Log')">
 						<img ng-src="img/auditlog-icon.png" class="md-avatar" />
 						<div class="md-list-item-text" layout="column">
 							<h3>Query AuditLog</h3>
@@ -60,21 +65,21 @@
 						</div>
 					</md-list-item>
 					
-					<md-list-item class="md-3-line" ng-click="go('configuration')">
+					<md-list-item class="md-3-line" ng-click="go('Configuration')">
 						<img ng-src="img/configuration-icon.png" class="md-avatar" />
 						<div class="md-list-item-text" layout="column">
 							<h3>View Configuration</h3>
 							<h4></h4>
 						</div>
 					</md-list-item>
-					<md-list-item class="md-3-line" ng-click="go('referencedata')">
+					<md-list-item class="md-3-line" ng-click="go('Reference Data')">
 						<img ng-src="img/referencedata-icon.png" class="md-avatar">
 						<div class="md-list-item-text" layout="column">
 							<h3>View ReferenceData</h3>
 							<h4></h4>
 						</div>
 					</md-list-item>
-					<md-list-item class="md-3-line" ng-click="go('dependency')">
+					<md-list-item class="md-3-line" ng-click="go('Service Dependency')">
 						<img ng-src="img/dependency-icon.png" class="md-avatar">
 						<div class="md-list-item-text" layout="column">
 							<h3>Find Service Dependency</h3>

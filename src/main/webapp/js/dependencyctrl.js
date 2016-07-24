@@ -13,37 +13,70 @@ app.factory('dependency', [ '$resource', function($resource) {
 } ])
 
   
-app.controller('DependencyCtrl', function ($scope, dependency, NgTableParams) {
+app.controller('DependencyCtrl', function ($scope, $http, dependency, NgTableParams) {
 	var self = this;
-	
-	self.result = [];
+	var raw = {};
+	$scope.refList = [{"name":"ab"}];
     
-
-	dependency.get().$promise.then(function(result) {
-		alert("success");
-	}, function(error) {
-		var result = {"ReferenceData": [
-		                                {
-		                                    "mappingid": 1,
-		                                    "referencetype": "ALFRESCO_PROPERTY_NAME",
-		                                    "codevalue": "businessAssociateId",
-		                                    "synced": true
-		                                 },
-		                                    {
-		                                    "mappingid": 359,
-		                                    "referencetype": "AML_COUNTRYCODE",
-		                                    "codevalue": "UK",
-		                                    "synced": true
-		                                 },
-		                                    {
-		                                    "mappingid": 359,
-		                                    "referencetype": "ISOALPHA2_COUNTRYCODE",
-		                                    "codevalue": "UK",
-		                                    "synced": true
-		                                 }
-		                              ]};
-	    });
+	$scope.clear = function() {
+	    self.refList = [{"name":"abcdef"}];
+	}
+	
+	$scope.reload = function() {
 		
-
+		$http({
+            method: 'GET',
+            url: 'https://www.example.com/api/v1/page',
+            params: 'limit=10, sort_by=created:desc',
+            headers: {'Authorization': 'Token token=xxxxYYYYZzzz'}
+        }).success(function(data){
+            // With the data succesfully returned, call our callback
+						alert("hello");
+        }).error(function(){
+        	raw = {
+				    "dependent": {
+				        "LOCK_STATUS": 2,
+				        "isNotification": "false",
+				        "isPub": "false",
+				        "name": "IFDS_AS_Percana_Client/ifds.as.percana.client.investormgmt.client.services:getClient_v1_0",
+				        "paths": null,
+				        "referencedBy": [
+				            {
+				                "LOCK_STATUS": 2,
+				                "isNotification": "false",
+				                "isPub": "false",
+				                "name": "IFDS_BS_Client_InvestorMgmt_Client/ifds.bs.client.investormgmt.client.services:getClient_v1_0",
+				                "paths": [
+				                    "/Flow Path;1.0/INVOKE;0"
+				                ],
+				                "referencedBy": [
+				                    {
+				                        "LOCK_STATUS": 2,
+				                        "isNotification": "false",
+				                        "isPub": "false",
+				                        "name": "IFDS_BS_Client_InvestorMgmt_Client/ifds.bs.client.investormgmt.client.ws.provider.services:getClient_v1_0",
+				                        "paths": [
+				                            "/Flow Path;1.0/SEQUENCE;3/SEQUENCE;0/INVOKE;0"
+				                        ]
+				                    }
+				                ],
+				                "type": "flow/default"
+				            }
+				        ],
+				        "type": "flow/default"
+				    },
+				    "node": "ifds.as.percana.client.investormgmt.client.services:getClient_v1_0"
+				};
+			$scope.refList1 = new Array();
+		    $scope.refList1.push(raw.dependent);
+		    $scope.refList = $scope.refList1;
+		    console.log($scope.refList);
+		    console.log("added to tree");
+        });
+		
+		
+	}
+	
+	
 });
 

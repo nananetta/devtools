@@ -2,10 +2,23 @@
   color: white; }
 
 .toolbardemoBasicUsage  md-list-item {
-	height: 88px;
+	height: 82px;
 }
 
-/*
-Copyright 2016 Google Inc. All Rights Reserved. 
-Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
-*/
+#refdata-control {
+	height: 92px;
+    padding-left: 20px;
+    padding-top: 14px;
+}
+
+#refdata-control md-input-container {
+	margin-bottom: 0px;
+}
+
+#search-button {
+    margin-top: -5px;
+}
+
+#namespace input {
+	width: 700px
+}
