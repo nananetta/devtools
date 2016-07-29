@@ -1,7 +1,7 @@
 var app = angular.module('MyApp');
 
 app.factory('dependency', [ '$resource', function($resource) {
-    return $resource('/rest/ifds/admin/devtools/services/refdata', {}, {
+    return $resource('/rest/avvv/admin/devtools/services/refdata', {}, {
 	get : {
 	    method : 'GET',
 	    headers : {
@@ -38,14 +38,14 @@ app.controller('DependencyCtrl', function ($scope, $http, dependency, NgTablePar
 				        "LOCK_STATUS": 2,
 				        "isNotification": "false",
 				        "isPub": "false",
-				        "name": "IFDS_AS_Percana_Client/ifds.as.percana.client.investormgmt.client.services:getClient_v1_0",
+				        "name": "Client/client.services:getClient_v1_0",
 				        "paths": null,
 				        "referencedBy": [
 				            {
 				                "LOCK_STATUS": 2,
 				                "isNotification": "false",
 				                "isPub": "false",
-				                "name": "IFDS_BS_Client_InvestorMgmt_Client/ifds.bs.client.investormgmt.client.services:getClient_v1_0",
+				                "name": "Client_/services:getClient_v1_0",
 				                "paths": [
 				                    "/Flow Path;1.0/INVOKE;0"
 				                ],
@@ -54,7 +54,7 @@ app.controller('DependencyCtrl', function ($scope, $http, dependency, NgTablePar
 				                        "LOCK_STATUS": 2,
 				                        "isNotification": "false",
 				                        "isPub": "false",
-				                        "name": "IFDS_BS_Client_InvestorMgmt_Client/ifds.bs.client.investormgmt.client.ws.provider.services:getClient_v1_0",
+				                        "name": "Client/ws.provider.services:getClient_v1_0",
 				                        "paths": [
 				                            "/Flow Path;1.0/SEQUENCE;3/SEQUENCE;0/INVOKE;0"
 				                        ]
@@ -65,7 +65,7 @@ app.controller('DependencyCtrl', function ($scope, $http, dependency, NgTablePar
 				        ],
 				        "type": "flow/default"
 				    },
-				    "node": "ifds.as.percana.client.investormgmt.client.services:getClient_v1_0"
+				    "node": "client.iservices:getClient_v1_0"
 				};
 			$scope.refList1 = new Array();
 		    $scope.refList1.push(raw.dependent);
