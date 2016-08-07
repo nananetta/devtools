@@ -1,0 +1,208 @@
+<html>
+<head>
+	<script type="text/javascript" src="js/angular-1.5.5.js"></script>
+	<script type="text/javascript" src="js/angular-animate.min-1.5.5.js"></script>
+	<script type="text/javascript" src="js/angular-route.min-1.5.5.js"></script>
+	<script type="text/javascript" src="js/angular-aria.min-1.5.5.js"></script>
+	<script type="text/javascript" src="js/angular-messages.min-1.5.5.js"></script>
+	<script type="text/javascript" src="js/svg-assets-cache-114.js"></script>
+	<script type="text/javascript" src="js/angular-material-v1.1.0-rc.5.js"></script>
+	<script type="text/javascript" src="js/sticky.min.js"></script>
+	<script type="text/javascript" src="js/ng-table.min.js"></script>
+	<script type="text/javascript" src="js/angular_ngreource.js"></script>
+	<script type="text/javascript" src="js/loading-bar.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	
+	<link href="css/angular-material-v1.1.0-rc.5.css" rel="stylesheet"></link>
+	<link href="css/ng-table.min.css" rel="stylesheet"></link>
+	<link href="css/bootstrap.min.css" rel="stylesheet"></link>
+	<link href="css/docs-1.1.0-rc.5.css" rel="stylesheet"></link>
+	<link href="css/app.css" rel="stylesheet"></link>
+	<link href="css/loading-bar.min.css" rel="stylesheet"></link>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+	
+</head>
+<body>
+	<div ng-controller="AppCtrl" ng-cloak="" class="releasenote" ng-app="MyApp">
+		<md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding="">
+    <div>
+      <md-input-container>
+        <label>Title</label>
+        <input ng-model="user.title">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Email</label>
+        <input ng-model="user.email" type="email">
+      </md-input-container>
+    </div>
+  </md-content>
+
+  <md-content layout-padding="">
+    <div>
+      <form name="userForm">
+
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block" flex-gt-xs="">
+            <label>Company (Disabled)</label>
+            <input ng-model="user.company" disabled="">
+          </md-input-container>
+
+          <md-datepicker ng-model="user.submissionDate" md-placeholder="Enter date">
+          </md-datepicker>
+        </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>First name</label>
+            <input ng-model="user.firstName">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>Long Last Name That Will Be Truncated And 3 Dots (Ellipsis) Will Appear At The End</label>
+            <input ng-model="theMax">
+          </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+          <label>Address</label>
+          <input ng-model="user.address">
+        </md-input-container>
+
+        <section layout="row" layout-align="start center" layout-wrap md-whiteframe>
+          <md-button class="md-raised" flex="20"><i class="material-icons unchecked">radio_button_unchecked</i>1. General</md-button>
+          <md-button class="md-raised" flex="20"><i class="material-icons unchecked">radio_button_unchecked</i>2. Service WSDL</md-button>
+          <md-button class="md-raised" flex="20"><i class="material-icons checked">check_circle</i>3. External WSDL</md-button>
+          <md-button class="md-raised md-primary" flex="20"><i class="material-icons unchecked">radio_button_unchecked</i>4. Dependency</md-button>
+          <md-button class="md-raised" flex="20"><i class="material-icons unchecked">radio_button_unchecked</i>5. Packages</md-button>
+          <md-button class="md-raised" flex="20"><i class="material-icons unchecked">radio_button_unchecked</i>6. Sequence</md-button>
+          <md-button class="md-raised md-primary" flex="20"><i class="material-icons checked">check_circle</i>7. JMS<i class="material-icons info">lens</i><i class="material-icons" style="color:#FF5722">lens</i><i class="material-icons">tonality</i></md-button>
+          <md-button class="md-raised " flex="20">8. Trigger</md-button>
+          <md-button class="md-raised md-warn " flex="20">9. Scheduler</md-button>
+          <md-button class="md-raised md-accent" flex="20">10. DB</md-button>
+        </section>
+        <p></p>
+
+
+        <section md-whiteframe>
+          <md-toolbar class="md-primary">
+            <div class="md-toolbar-tools" layout="row">
+              <h2 flex="grow">External WSDL</h2>
+              <span flex="auto">{{ data.cb1 }}</span>
+              <md-switch ng-model="data.cb1" aria-label="Switch 1" ng-true-value="'ON'" ng-false-value="'OFF'" flex="auto">
+              </md-switch>
+            </div>
+          </md-toolbar>
+          <div layout="row" class="section-body">
+            xx
+          </div>
+
+        </section>
+
+        <p></p>
+
+        <section md-whiteframe>
+          <md-toolbar class="md-primary">
+            <div class="md-toolbar-tools" layout="row">
+              <h2 flex="grow">Service WSDL</h2>
+              <span flex="auto">{{ data.cb1 }}</span>
+              <md-switch ng-model="data.cb1" aria-label="Switch 1" ng-true-value="'ON'" ng-false-value="'OFF'" flex="auto">
+              </md-switch>
+            </div>
+          </md-toolbar>
+          <div layout="row" class="section-body">
+            <table class="table table-condensed table-striped table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th class="col-md-5">URL</th>
+                  <th class="col-md-1">Service Version</th>
+                  <th class="col-md-1">WSDL Version</th>
+                  <th class="col-md-2">Interface Type</th>
+                  <th class="col-md-3">Remark</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <p>1</p>
+                  </td>
+                  <td>
+                    <md-input-container md-no-float="" class="md-block">
+                      <textarea max-rows="3" ng-model="user.address2" placeholder="http://sub.co/location/svc"></textarea>
+                    </md-input-container>
+                  </td>
+                  <td>
+                    <md-input-container md-no-float="" class="md-block">
+                      <input ng-model="user.address2" placeholder="x.x"></input>
+                    </md-input-container>
+                  </td>
+                  <td>
+                    <md-input-container md-no-float="" class="md-block">
+                      <input ng-model="user.address2" placeholder="x.x">
+                    </md-input-container>
+                  </td>
+                  <td>
+                    <md-input-container class="md-block">
+                      <md-select ng-model="user.state">
+                        <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+                          {{state.abbrev}}
+                        </md-option>
+                      </md-select>
+                    </md-input-container>
+                  </td>
+                  <td>
+                    <md-input-container md-no-float="">
+                      <input ng-model="user.address2">
+                    </md-input-container>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>2</p>
+                  </td>
+                  <td>
+                    <md-input-container md-no-float="" class="md-block">
+                      <input ng-model="user.address2" placeholder="http://sub.co/location/svc">
+                    </md-input-container>
+                  </td>
+                  <td>
+                    <md-input-container md-no-float="" class="md-block">
+                      <input ng-model="user.address2" placeholder="x.x">
+                    </md-input-container>
+                  </td>
+                  <td>
+                    <md-input-container md-no-float="" class="md-block">
+                      <input ng-model="user.address2" placeholder="x.x">
+                    </md-input-container>
+                  </td>
+                  <td>
+                    <md-input-container class="md-block">
+                      <md-select ng-model="user.state">
+                        <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+                          {{state.abbrev}}
+                        </md-option>
+                      </md-select>
+                    </md-input-container>
+                  </td>
+                  <td>
+                    <md-input-container md-no-float="">
+                      <input ng-model="user.address2">
+                    </md-input-container>
+                  </td>
+                </tr>
+              </tbody>
+              <table>
+          </div>
+        </section>
+
+        <p></p>
+
+
+      </form>
+    </div>
+  </md-content>
+	</div>
+</body>
+</html>
