@@ -1,7 +1,6 @@
-.inputdemoBasicUsage .md-datepicker-button {
-  width: 36px; }
+@media screen {
 
-section .md-button {
+div#menu .md-button {
   margin-top: 6px;
   margin-bottom: 6px; 
   text-align: left;
@@ -30,3 +29,41 @@ section .md-button {
   padding: 12px;
 }
 
+h2 {
+	font-weight: bold;
+}
+
+}
+
+@media print {
+	@page {
+		margin-top: 1cm;
+		size: landscape;
+	}
+
+	h2 {
+		font-weight: bold;
+	}
+		
+	section {
+		page-break-before: always;
+	}
+	
+	div#menu .md-button {
+	  margin-top: 6px;
+	  margin-bottom: 6px; 
+	  text-align: left;
+	}
+	
+.material-icons {
+  vertical-align: middle;
+  margin-top: -2px;
+  margin-right: 5px;
+  font-size: 20px;
+}
+	.md-button {
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.8);
+		border: 2px solid #4C2250;
+	}
+
+}
